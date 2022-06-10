@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   BASE_URL:
-    'https://api.rawg.io/api/games?key=fcad9c22378841328195dd92a7175bfd',
-};
+  'https://api.rawg.io/api',
+SECRET_KEY:'?key=fcad9c22378841328195dd92a7175bfd'};
 
 /*
  * For easier debugging in development mode, you can import the following file
