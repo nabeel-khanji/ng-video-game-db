@@ -1,0 +1,54 @@
+<div class="game-tabs">
+  <mat-tab-group mat-align-tabs="start" backgroundColor="primary">
+    <mat-tab label="About">
+      <p  *ngIf="game.parent_platforms?.length" class="game-tabs-par">
+        Platforms:<span
+          *ngFor="let game of game.parent_platforms; let last = last">
+        
+          {{game.platform.name}}<span *ngIf="!last">,</span> </span>
+        
+      </p>
+      <p  *ngIf="game.publishers?.length" class="game-tabs-par">
+        Publisher:<span
+          *ngFor="let game of game.publishers; let last = last">
+        
+          {{game.name}}<span *ngIf="!last">, </span>
+        </span>
+      </p>  <p class="game-tabs-par">
+        Website:<span>
+          <a class="game-tabs-link" href="{{game.website}}" target="_blank"> {{game.website}}</a></span
+        >
+      </p>
+      <div class="game-description"[innerHTML]=game.description></div>
+      <ng-container *ngFor="let rating of game.ratings">
+      <div class="game-tabs-votes">
+        <span *ngIf="rating.title==='exceptional'">
+          <mat-icon class="game-tabs-votes-up"> thumb_up </mat-icon>
+          <span class="game-tabs-votes-count"> {{rating.count||0}} </span> </span
+        ><span *ngIf="rating.title==='skip'">
+          <mat-icon class="game-tabs-votes-down"> thumb_down </mat-icon>
+          <span class="game-tabs-votes-count"> {{rating.count||0}} </span>
+        </span>
+      </div>
+    </ng-container>
+    </mat-tab>
+    <mat-tab  label="Screenshots" *ngIf="game.screenshots?.length">
+      
+        <img
+        class="game-screenshots"
+        *ngFor="let game of game.screenshots;"
+        src="{{game.image}}"
+        alt="screenshots"
+        srcset=""
+      />
+      
+    </mat-tab>
+    <mat-tab label="Trailer" *ngIf="game.trailer?.length">
+      <video
+      *ngFor="let game of game.trailer;"  class="game-trailer"
+        src="{{game.data.max}}"
+        controls
+      ></video>
+    </mat-tab>
+  </mat-tab-group>
+</div>
