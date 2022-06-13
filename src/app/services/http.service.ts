@@ -26,19 +26,19 @@ export class HttpService {
   getGameDetails(id: string): Observable<Game> {
     const gameInfoRequest = this.http.get(`${env.BASE_URL}/games/${id}${env.SECRET_KEY}`);
     const gameTrailerRequest = this.http.get(
-      `${env.BASE_URL}/games/${id}${env.SECRET_KEY}`
+      `${env.BASE_URL}/games/${id}/movies${env.SECRET_KEY}`
     );
-    const gameScreenShortsRequests = this.http.get(
-      `${env.BASE_URL}/games/${id}${env.SECRET_KEY}`
+    const gameScreenShotsRequests = this.http.get(
+      `${env.BASE_URL}/games/${id}/screenshots${env.SECRET_KEY}`
     );  return forkJoin({
       gameInfoRequest,
-      gameScreenShortsRequests,
+      gameScreenShotsRequests,
       gameTrailerRequest
     }).pipe(map((resp:any)=>{
       return{
         ...resp['gameInfoRequest'],
-        screenshorts:resp['gameScreenShortsRequests']?.results,
-        trailers:resp['gameTrailerRequest']?.results
+        screenshots:resp['gameScreenShotsRequests']?.results,
+        trailer:resp['gameTrailerRequest']?.results
       }
     }))
   }
