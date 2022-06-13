@@ -10,7 +10,7 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-  gameRating = 100;
+  gameRating = 0;
   gameID!: string;
   game!: Game;
   routeSub!: Subscription;
