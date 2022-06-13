@@ -7,10 +7,32 @@ export interface Game {
   genres: Array<Genres>;
   parent_platforms: Array<ParentPlatforms>;
   ratings: Array<Rating>;
-  short_screenshots: Array<ScreenShort>;
+  screenshots: Array<ScreenShort>;
+  metacritic_url:string;
+  website:string;
+  description:string;
+  publishers: Array<Publisher>;
+  trailer:
+     Array<TrailerResults>
+  ;
 }
 export interface APIResponse<T> {
   results: Array<T>;
+}
+
+interface TrailerResults{
+  data:{
+    max:string,
+    name:string
+  }
+}
+interface Publisher{
+  id: number,
+name: string,
+slug: string,
+games_count: number,
+image_background: string
+
 }
 interface Genres {
   name: string;
