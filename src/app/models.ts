@@ -17,6 +17,9 @@ export interface Game {
   ;
 }
 export interface APIResponse<T> {
+  count:number;
+  next:string;
+  previous:string;
   results: Array<T>;
 }
 

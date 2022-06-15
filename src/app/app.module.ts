@@ -16,20 +16,24 @@ import { HttpInterceptorInterceptor } from './interceptors/http-interceptor.inte
 import { DetailsComponent } from './components/details/details.component';
 import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
 import {MatIconModule} from '@angular/material/icon';
+import { LoginComponent } from './components/login/login.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
-  declarations: [AppComponent, SearchBarComponent, HomeComponent, DetailsComponent, GameTabsComponent],
+  declarations: [AppComponent, SearchBarComponent, HomeComponent, DetailsComponent, GameTabsComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatPaginatorModule,
     FormsModule,
     GaugeModule.forRoot(),
     MatFormFieldModule,
     MatSelectModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorInterceptor, multi: true },
   ],
