@@ -1,7 +1,11 @@
 <div class="filters">
   <mat-form-field>
-    <mat-label> Sort </mat-label>
-    <mat-select panelClass="sort-select" [(ngModel)]="sort" (selectionChange)="searchGames(sort)">
+     <mat-label> Sort </mat-label>
+    <mat-select
+      panelClass="sort-select"
+      [(ngModel)]="sort"
+      (selectionChange)="searchGames(sort)"
+    >
       <mat-option value="name">Name</mat-option>
       <mat-option value="released">Released</mat-option>
       <mat-option value="added">Added</mat-option>
@@ -12,10 +16,13 @@
       <mat-option value="reviews_count">Reviews Count</mat-option>
       <mat-option value="suggestions_count">Suggestions Count</mat-option>
       <mat-option value="metaritic">Metaritic</mat-option>
-      
     </mat-select>
   </mat-form-field>
+ <button (click)="gamePagination(previous)">Previous</button>
+    <button (click)="gamePagination(next)">Next</button>
+  
 </div>
+
 <div class="games">
   <ng-container *ngFor="let game of games">
     <div class="game" (click)="openGameDetailsMethod(game.id)">

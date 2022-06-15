@@ -12,6 +12,10 @@ import { HttpService } from 'src/app/services/http.service';
 export class HomeComponent implements OnInit, OnDestroy {
   public sort!: string;
   public games!: Array<Game>;
+  public count!: number;
+  public next!: string;
+  public previous!: string;
+  
   public gameSub!: Subscription;
   public routeSub!: Subscription;
 
@@ -28,15 +32,35 @@ export class HomeComponent implements OnInit, OnDestroy {
       } else {
         this.searchGames('metacrit');
       }
+      
     });
   }
-  searchGames(sort: string, search?: string) {
+  searchGames( sort: string, search?: string) {
     this.gameSub = this.httpService
       .getGameList(sort, search)
       .subscribe((gameList: APIResponse<Game>) => {
         this.games = gameList.results;
+        this.count= gameList.count;
+        this.next= gameList.next;
+        this.previous= gameList.previous;
+        
         console.log(gameList);
       });
+  }
+  gamePagination(link:string){
+    console.log(link);
+    
+    this.gameSub = this.httpService
+    .getGameList(link)
+    .subscribe((gameList: APIResponse<Game>) => {
+      this.games = gameList.results;
+      this.count= gameList.count;
+      this.next= gameList.next;
+      this.previous= gameList.previous;
+      
+      console.log(gameList);
+      
+    });
   }
   openGameDetailsMethod(id: string): void {
     this.router.navigate(['details', id]);
