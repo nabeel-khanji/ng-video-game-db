@@ -1,14 +1,17 @@
 <div class="search-container">
-
-  <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
-    <span class="logo" routerLink="'/"> NgVGDB </span>
-    <input
-      type="text"
-      name="search"
-      ngModel
-      class="search-input"
-      placeholder="Search 500,000+ gmaes"
-    />
-    <button class="search-button" type="submit">Search</button>
-  </form>
-</div>
+  <div class="search-padding">
+    <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <span class="logo" routerLink="'/"> NgVGDB </span>
+      <input
+        type="text"
+        name="search"
+        ngModel
+        class="search-input"
+        placeholder="Search 500,000+ gmaes"
+      />
+      <button class="search-button" type="submit">Search</button>
+    </form>
+    <button class="login-button" type="button" (click)="redirectLogin()">Login</button>
+  
+  </div>
+  </div>
