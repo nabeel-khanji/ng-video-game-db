@@ -14,14 +14,17 @@ export class HttpService {
  
   getGameList(
     ordering: string,
+    page: number,
     search?: string,
-    link?: string,
   ): Observable<APIResponse<Game>> {
-    console.log(link);
+    
+    console.log(page);
+    
+    console.log("page ##########");
     
     let params = new HttpParams().set('ordering', ordering);
-    if (link) {
-      return this.http.get<APIResponse<Game>>(link, {
+    if (page) {
+      return this.http.get<APIResponse<Game>>( `${env.BASE_URL}/games${env.SECRET_KEY}&page=${page}`, {
         params: params,
       });
     }
@@ -29,7 +32,7 @@ export class HttpService {
       params = new HttpParams().set('ordering', ordering).set('search', search);
     }
     return this.http.get<APIResponse<Game>>(
-      `${env.BASE_URL}/games${env.SECRET_KEY}`,
+      `${env.BASE_URL}/games${env.SECRET_KEY}&page=${page}`,
       {
         params: params,
       }
