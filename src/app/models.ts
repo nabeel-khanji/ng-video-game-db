@@ -21,6 +21,7 @@ export interface APIResponse<T> {
   next:string;
   previous:string;
   results: Array<T>;
+  page:number;
 }
 
 interface TrailerResults{

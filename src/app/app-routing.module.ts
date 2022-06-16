@@ -25,6 +25,9 @@ const routes: Routes = [
   }, {
     path: 'home/:id',
     component: HomeComponent,
+  }, {
+    path: 'page/:event',
+    component: HomeComponent,
   },
 ];
 

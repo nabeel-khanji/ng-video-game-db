@@ -18,6 +18,7 @@ import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
 import {MatIconModule} from '@angular/material/icon';
 import { LoginComponent } from './components/login/login.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent, SearchBarComponent, HomeComponent, DetailsComponent, GameTabsComponent, LoginComponent],
@@ -33,6 +34,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSelectModule,
     MatTabsModule,
     MatIconModule,
+    NgxPaginationModule
     
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorInterceptor, multi: true },
