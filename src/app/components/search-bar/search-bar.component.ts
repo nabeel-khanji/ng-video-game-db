@@ -15,6 +15,6 @@ export class SearchBarComponent implements OnInit {
     this.router.navigate(['search', form.value.search]);
   }
   redirectLogin(){
-    this.router.navigate(['login']);
+    this.router.navigate(['search']);
   }
 }
